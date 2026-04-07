@@ -1,5 +1,5 @@
-const isGitHubPagesBuild = process.env.GITHUB_ACTIONS === "true";
 const repoName = "next-gen-jdm-configurator";
+const isProduction = process.env.NODE_ENV === "production";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -15,8 +15,8 @@ const nextConfig = {
       },
     ],
   },
-  basePath: isGitHubPagesBuild ? `/${repoName}` : "",
-  assetPrefix: isGitHubPagesBuild ? `/${repoName}/` : "",
+  basePath: isProduction ? `/${repoName}` : "",
+  assetPrefix: isProduction ? `/${repoName}/` : "",
 };
 
 export default nextConfig;
